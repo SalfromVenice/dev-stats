@@ -54,34 +54,55 @@ class HomepageController < ApplicationController
     end
 
     private
-    # TODO: formattare bene il json, in modo da renderlo fruibile nel frontend
-    def normalize_data(data)
-      if data["errors"]
-          return data
-      end
 
-      repositories = data["data"]["user"]["repositories"]["nodes"]
-      aggregated = {}
+  def normalize_data(data)
+    return data if data["errors"]
 
-      repositories.each do |repo|
-        repo["languages"]["edges"].each do |lang|
-          name = lang["node"]["name"]
-          color = lang["node"]["color"]
-          size = (lang["size"] / 1024).round(2)
+    repositories = data["data"]["user"]["repositories"]["nodes"]
+    aggregated = {}
 
-          if aggregated.key?(name)
-            aggregated[name][:size] += size
-          else
-            aggregated[name] = { name: name, color: color, size: size }
-          end
+    repositories.each do |repo|
+      repo["languages"]["edges"].each do |lang|
+        name = lang["node"]["name"]
+        color = lang["node"]["color"] || "#cccccc"
+        size = lang["size"].to_f
+
+        next unless name
+
+        if aggregated.key?(name)
+          aggregated[name][:size] += size
+        else
+          aggregated[name] = { name: name, color: color, size: size }
         end
       end
-
-      {
-          username: data["data"]["user"]["login"],
-          repos: data["data"]["user"]["repositories"]["totalCount"],
-          avatar: data["data"]["user"]["avatarUrl"],
-          stats: aggregated.values
-      }
     end
+
+    total_size = aggregated.values.sum { |l| l[:size] }
+
+    other = { name: "Other", color: "#999999", size: 0.0 }
+
+    normalized = aggregated.each_with_object([]) do |(_, lang), result|
+      percentage = (lang[:size] / total_size) * 100
+
+      if percentage < 1
+        other[:size] += lang[:size]
+      else
+        normalized_size = ((percentage / 100.0) * 100).round(2) # scala già da 0 a 100
+        result << { name: lang[:name], color: lang[:color], size: normalized_size }
+      end
+    end
+
+    if other[:size] > 0
+      other_percentage = (other[:size] / total_size) * 100
+        other[:size] = other_percentage.round(2)
+        normalized << other
+    end
+
+    {
+      username: data["data"]["user"]["login"],
+      repos: data["data"]["user"]["repositories"]["totalCount"],
+      avatar: data["data"]["user"]["avatarUrl"],
+      stats: normalized
+    }
+  end
 end
