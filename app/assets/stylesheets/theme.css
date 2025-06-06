@@ -1,0 +1,109 @@
+@theme {
+	/* breakpoint */
+	--breakpoint-xxs: 24rem; /* 384px */
+	--breakpoint-xs: 32rem; /* 512px */
+
+	/* fonts */
+	--font-questrial: 'Questrial';
+	--font-lato: 'Lato';
+
+	/* colors */
+	--color-primary-light: #f7f6f5;
+	--color-primary-dark: #1a2837;
+	--color-secondary-light: #f2f0ee;
+	--color-secondary-dark: #213547;
+	--color-accent-light: #ffbe55;
+	--color-accent-dark: #adff2f;
+
+	/* shadows */
+	--shadow-light: 0 8px 32px 0 #ffbe5520;
+	--shadow-dark: 0 8px 32px 0 #adff2f10;
+
+	/* drop-shadows */
+	--drop-shadow-light: 0 0 16px #ffbe5595;
+	--drop-shadow-dark: 0 0 16px #adff2f70;
+
+	/* animations */
+	--animate-fade-in-scale: fade-in-scale 0.3s ease-out;
+	@keyframes fade-in-scale {
+		0% {
+			opacity: 0;
+			transform: scale(0.95);
+		}
+		100% {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	--animate-shake: shake 0.3s ease-in-out;
+	@keyframes shake {
+		0% {
+			transform: translateX(0);
+		}
+
+		25% {
+			transform: translateX(-5px);
+		}
+
+		50% {
+			transform: translateX(5px);
+		}
+
+		75% {
+			transform: translateX(-5px);
+		}
+
+		100% {
+			transform: translateX(0);
+		}
+	}
+
+	--animate-fade-in-slide-down: fade-in-slide-down 0.5s ease-out;
+	@keyframes fade-in-slide-down {
+		0% {
+			opacity: 0;
+			transform: translateY(-4rem);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	--animate-fade-in-slide-up: fade-in-slide-up 0.5s ease-out;
+	@keyframes fade-in-slide-up {
+		0% {
+			opacity: 0;
+			transform: translateY(4rem);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	--animate-fade-in-slide-right: fade-in-slide-right 0.5s ease-out;
+	@keyframes fade-in-slide-right {
+		0% {
+			opacity: 0;
+			transform: translateX(-4rem);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	--animate-fade-in-slide-left: fade-in-slide-left 0.5s ease-out;
+	@keyframes fade-in-slide-left {
+		0% {
+			opacity: 0;
+			transform: translateX(4rem);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+}

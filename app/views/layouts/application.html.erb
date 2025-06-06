@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title><%= content_for(:title) || "Dev Stats" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -14,14 +15,16 @@
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
     <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app %>
-  </head>
+    <%= stylesheet_link_tag 'application.css' %>
+    <%= vite_client_tag %>
+    <%= vite_javascript_tag 'application.jsx' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+    <div id="root"></div>
+</body>
+
 </html>

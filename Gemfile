@@ -47,3 +47,11 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "turbo-rails", "~> 2.0"
+
+gem "stimulus-rails", "~> 1.3"
+
+gem "vite_rails", "~> 3.0"
+
+gem "dotenv", "~> 3.1"
