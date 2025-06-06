@@ -57,10 +57,10 @@ export const DevStats: React.FC<PropsT> = ({ stats }) => {
 				className='rounded-lg shadow flex mx-auto overflow-hidden
                     gap-0.25 w-fit'
 			>
-				<Button onClick={() => setIndex(0)}>
+				<Button isActive={index === 0} onClick={() => setIndex(0)}>
 					<ChartBarIcon size={24} />
 				</Button>
-				<Button onClick={() => setIndex(1)}>
+				<Button isActive={index === 1} onClick={() => setIndex(1)}>
 					<ChartPieSliceIcon size={24} />
 				</Button>
 			</div>
