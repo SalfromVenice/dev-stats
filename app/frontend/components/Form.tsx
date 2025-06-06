@@ -44,8 +44,10 @@ export const Form: React.FC<PropsT> = ({ handleSubmit, status }) => {
 			/>
 			<button
 				type='submit'
-				className='absolute right-0 bg-accent-light p-2 cursor-pointer
-                hover:bg-amber-500 transition-colors active:bg-accent-dark'
+				className={`absolute right-0 bg-accent-light p-2 cursor-pointer
+                hover:bg-blend-darken transition-colors hover:bg-sky-500 ${
+					!username ? 'active:bg-accent-dark' : 'active:bg-sky-600'
+				}`}
 			>
 				<MagnifyingGlassIcon size={24} />
 			</button>

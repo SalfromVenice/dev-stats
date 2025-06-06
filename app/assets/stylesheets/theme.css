@@ -8,20 +8,20 @@
 	--font-lato: 'Lato';
 
 	/* colors */
-	--color-primary-light: #f7f6f5;
-	--color-primary-dark: #1a2837;
-	--color-secondary-light: #f2f0ee;
-	--color-secondary-dark: #213547;
-	--color-accent-light: #ffbe55;
-	--color-accent-dark: #adff2f;
+	--color-primary-light: #f0f9ff;
+	--color-primary-dark: #1e2a36;
+	--color-secondary-light: #e2e8f0;
+	--color-secondary-dark: #334155;
+	--color-accent-light: #5ab2ff;
+	--color-accent-dark: #ff637e;
 
 	/* shadows */
-	--shadow-light: 0 8px 32px 0 #ffbe5520;
-	--shadow-dark: 0 8px 32px 0 #adff2f10;
+	--shadow-light: 0 8px 32px 0 #5ab2ff20;
+	--shadow-dark: 0 8px 32px 0 #ff637e10;
 
 	/* drop-shadows */
-	--drop-shadow-light: 0 0 16px #ffbe5595;
-	--drop-shadow-dark: 0 0 16px #adff2f70;
+	--drop-shadow-light: 0 0 16px #5ab2ff80;
+	--drop-shadow-dark: 0 0 16px #ff637e70;
 
 	/* animations */
 	--animate-fade-in-scale: fade-in-scale 0.3s ease-out;

@@ -40,19 +40,21 @@ export const DevStats: React.FC<PropsT> = ({ stats }) => {
 	];
 
 	return stats ? (
-		<div className='grid md:grid-cols-[auto_1fr] gap-8 mx-auto max-w-xl'>
-			<img
-				alt='Github avatar image'
-				src={stats.avatar}
-				className='rounded-full border-8 max-w-[220px] shadow mx-auto
+		<div className='mx-auto max-w-2xl space-y-8'>
+			<div className='grid md:grid-cols-[auto_1fr] gap-8 mx-auto'>
+				<img
+					alt='Github avatar image'
+					src={stats.avatar}
+					className='rounded-full border-8 max-w-[220px] shadow mx-auto
                 animate-fade-in-slide-right border-primary-light dark:border-primary-dark'
-			/>
-			<div className='flex flex-col mx-auto justify-center animate-fade-in-slide-right'>
-				<h2>{stats.username}</h2>
-				<p>{stats.repos} public repositories</p>
+				/>
+				<div className='flex flex-col justify-center animate-fade-in-slide-right'>
+					<h2>{stats.username}</h2>
+					<p>{stats.repos} public repositories</p>
+				</div>
 			</div>
 			<div
-				className='col-span-full rounded-lg shadow flex mx-auto overflow-hidden
+				className='rounded-lg shadow flex mx-auto overflow-hidden
                     gap-0.25 w-fit'
 			>
 				<Button onClick={() => setIndex(0)}>
@@ -62,7 +64,9 @@ export const DevStats: React.FC<PropsT> = ({ stats }) => {
 					<ChartPieSliceIcon size={24} />
 				</Button>
 			</div>
-			{graph[index]}
+			<div className='rounded-xl p-6 shadow w-full bg-primary-light dark:bg-primary-dark'>
+				{graph[index]}
+			</div>
 		</div>
 	) : null;
 };
