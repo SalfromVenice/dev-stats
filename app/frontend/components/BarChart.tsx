@@ -1,7 +1,7 @@
 import { Chart, registerables } from 'chart.js';
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import { isDarkTheme } from '../helpers';
+import { isDarkTheme, isMobile } from '../helpers';
 
 Chart.register(...registerables);
 
@@ -58,6 +58,16 @@ export const BarChart: React.FC<PropsT> = ({ datasets, className }) => {
 			},
 		},
 	};
+
+	if (isMobile() && window.innerWidth < 660)
+		return (
+			<div>
+				<p className='text-center'>
+					This chart is best viewed in landscape mode.
+				</p>
+				<p className='text-center'>Please rotate your device.</p>
+			</div>
+		);
 
 	return (
 		<Bar

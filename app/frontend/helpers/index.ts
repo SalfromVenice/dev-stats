@@ -13,3 +13,8 @@ export const isDarkTheme = () => {
 
 	return html.classList.toString() === 'dark';
 };
+
+export const isMobile = () => {
+	const userAgent = navigator.userAgent;
+	return /android|iPhone|iPad|iPod/i.test(userAgent);
+};
