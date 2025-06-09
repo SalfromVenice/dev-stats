@@ -1,24 +1,30 @@
-# README
+# Dev Stats
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Dev Stats** is a single-page web app built with **Ruby on Rails** (monolith) and a **React + Vite + TypeScript** frontend.
 
-Things you may want to cover:
+It allows you to enter a **GitHub username** and visualize which programming languages are used across that user's **public repositories**, using interactive **Chart.js** graphs. Data is fetched using the **GitHub GraphQL API**.
 
-* Ruby version
+## 🌐 Live Demo
 
-* System dependencies
+👉 [https://dev-stats.onrender.com/](https://dev-stats.onrender.com/)
 
-* Configuration
+> ⚠️ The app is hosted on [Render](https://render.com), which may put it into **cold start** mode after periods of inactivity.
+> As a result, **it may take up to 1–2 minutes** to load when accessed for the first time.
 
-* Database creation
+## 🧠 How It Works
 
-* Database initialization
+1. Enter a GitHub username into the input field.
+2. The app queries the GitHub GraphQL API for public repositories.
+3. It extracts the languages used across those repositories.
+4. Results are displayed as interactive **pie and bar charts**.
 
-* How to run the test suite
+## 📸 Features
 
-* Services (job queues, cache servers, search engines, etc.)
+-   GitHub GraphQL API integration
+-   Aggregation of language usage per user
+-   Interactive visualizations with **Chart.js**
+-   Clean, minimal SPA experience
 
-* Deployment instructions
+---
 
-* ...
+Made with ❤️ using Rails, React, Vite, and TypeScript.
