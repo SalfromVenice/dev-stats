@@ -2,6 +2,7 @@ import { Chart, registerables } from 'chart.js';
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { isDarkTheme, isMobile } from '../helpers';
+import { useOrientation } from '../helpers/useOrientation';
 
 Chart.register(...registerables);
 
@@ -16,6 +17,8 @@ type PropsT = {
 };
 
 export const BarChart: React.FC<PropsT> = ({ datasets, className }) => {
+	const orientation = useOrientation();
+
 	const options = {
 		indexAxis: 'x' as 'x' | 'y',
 		elements: {
@@ -59,7 +62,7 @@ export const BarChart: React.FC<PropsT> = ({ datasets, className }) => {
 		},
 	};
 
-	if (isMobile() && window.innerWidth < 660)
+	if (isMobile() && orientation === 'portrait')
 		return (
 			<div>
 				<p className='text-center'>
